@@ -298,6 +298,8 @@
 //     );
 // }
 
+
+
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
@@ -310,6 +312,7 @@ function waLink(planName, billing) {
   const text = encodeURIComponent(
     `Hi! I'd like to book *${planName}* (${billing}) under Gardening Service. Please share next steps.`
   );
+
   return `https://wa.me/${WA_NUMBER}?text=${text}`;
 }
 
@@ -386,7 +389,10 @@ const ANNUAL_PLANS = [
   },
   {
     name: "Enhanced Care",
-    meta: ["Up to 40 Plants", "4 visits / month (1 extra visit for annual customers)"],
+    meta: [
+      "Up to 40 Plants",
+      "4 visits / month (1 extra visit for annual customers)",
+    ],
     features: [
       "Everything in Essential Care",
       "Health-focused care – nutrition cycles, disease spotting & early treatment",
@@ -401,7 +407,10 @@ const ANNUAL_PLANS = [
   },
   {
     name: "Bloom Care",
-    meta: ["Up to 60 Plants", "4 visits / month (1 extra visit for annual customers)"],
+    meta: [
+      "Up to 60 Plants",
+      "4 visits / month (1 extra visit for annual customers)",
+    ],
     features: [
       "Everything in Enhanced Care",
       "Beautification upgrades – foliage polish, growth boosters, premium fertigation",
@@ -440,24 +449,33 @@ const ANNUAL_PLANS = [
 function GardeningServiceContent() {
   const searchParams = useSearchParams();
   const tabParam = searchParams.get("tab");
-  const [tab, setTab] = useState(
-    tabParam === "annual" ? "annual" : "monthly"
-  );
 
+  const [tab, setTab] = useState("monthly");
+
+  // Keep the selected tab synchronized with the URL.
   useEffect(() => {
     if (tabParam === "annual" || tabParam === "monthly") {
       setTab(tabParam);
+    } else {
+      setTab("monthly");
     }
   }, [tabParam]);
 
-  const plans = tab === "monthly" ? MONTHLY_PLANS : ANNUAL_PLANS;
-  const billingLabel = tab === "monthly" ? "Monthly Care" : "Annual Care";
+  const plans = tab === "annual" ? ANNUAL_PLANS : MONTHLY_PLANS;
+  const billingLabel =
+    tab === "annual" ? "Annual Care" : "Monthly Care";
 
-  const switchTab = (next) => {
-    setTab(next);
-    const url = next === "annual" ? "?tab=annual" : "?tab=monthly";
-    window.history.replaceState(null, "", `/gardening-service${url}`);
-  };
+  function switchTab(nextTab) {
+    setTab(nextTab);
+
+    const url =
+      nextTab === "annual"
+        ? "/gardening-service?tab=annual"
+        : "/gardening-service?tab=monthly";
+
+    // Update the URL without triggering a full page reload.
+    window.history.replaceState(null, "", url);
+  }
 
   return (
     <main className="gs-page">
@@ -465,9 +483,11 @@ function GardeningServiceContent() {
       <section className="page-hero gs-hero">
         <div className="wrap">
           <p className="eyebrow">Gardening Service</p>
+
           <h1 style={{ color: "var(--emerald-deep)" }}>
             Monthly Care &amp; Annual Care
           </h1>
+
           <p className="page-hero-sub">
             Dependable plant care for homes, balconies and terraces — from
             essential visits to full signature programmes.
@@ -481,7 +501,11 @@ function GardeningServiceContent() {
 
         <div className="wrap gs-plans-inner">
           {/* Tabs */}
-          <div className="gs-tabs" role="tablist" aria-label="Care type">
+          <div
+            className="gs-tabs"
+            role="tablist"
+            aria-label="Care type"
+          >
             <button
               type="button"
               role="tab"
@@ -491,6 +515,7 @@ function GardeningServiceContent() {
             >
               Monthly Care
             </button>
+
             <button
               type="button"
               role="tab"
@@ -502,35 +527,42 @@ function GardeningServiceContent() {
             </button>
           </div>
 
+          {/* Introduction */}
           <div className="gs-intro">
             {tab === "monthly" ? (
               <>
                 <p className="gs-intro-title">
-                  Quick one-time sessions to revive, refresh, or reset your plants.
+                  Quick one-time sessions to revive, refresh, or reset your
+                  plants.
                 </p>
+
                 <p className="gs-intro-body">
-                  Whether you need a seasonal cleanup, a post-holiday reset, or help
-                  with stressed plants, our on-demand visits bring expert care
-                  straight to your home – whenever you need it.
+                  Whether you need a seasonal cleanup, a post-holiday reset,
+                  or help with stressed plants, our on-demand visits bring
+                  expert care straight to your home – whenever you need it.
                 </p>
               </>
             ) : (
               <>
                 <p className="gs-intro-title">
-                  Monthly plant care designed to keep your garden healthy year-round.
+                  Monthly plant care designed to keep your garden healthy
+                  year-round.
                 </p>
+
                 <p className="gs-intro-body">
-                  Our subscription plans offer dependable, personalized care – from
-                  pruning and soil renewal to pest management – so your green space
-                  stays vibrant, balanced, and thriving every month.
+                  Our subscription plans offer dependable, personalized care
+                  – from pruning and soil renewal to pest management – so your
+                  green space stays vibrant, balanced, and thriving every
+                  month.
                 </p>
               </>
             )}
           </div>
 
+          {/* Plan Cards */}
           <div className="gs-grid">
             {plans.map((plan) => (
-              <article key={plan.name + tab} className="gs-card">
+              <article key={`${plan.name}-${tab}`} className="gs-card">
                 <h3>{plan.name}</h3>
 
                 {plan.meta && (
@@ -547,6 +579,7 @@ function GardeningServiceContent() {
                       <span className="gs-leaf" aria-hidden="true">
                         ▸
                       </span>
+
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -555,9 +588,10 @@ function GardeningServiceContent() {
                 <div className="gs-price">
                   <strong>
                     {plan.price}
-                    {plan.unit ? <span>{plan.unit}</span> : null}
+                    {plan.unit && <span>{plan.unit}</span>}
                   </strong>
-                  {plan.note ? <small>{plan.note}</small> : null}
+
+                  {plan.note && <small>{plan.note}</small>}
                 </div>
 
                 <a
@@ -572,6 +606,7 @@ function GardeningServiceContent() {
             ))}
           </div>
 
+          {/* Footer Note */}
           <p className="gs-note">
             All rates are exclusive of 18% GST.
             <br />
@@ -592,6 +627,7 @@ function GardeningServiceContent() {
       <section className="gs-cta">
         <div className="wrap">
           <h2>Looking for a personalized garden service plan?</h2>
+
           <Link href="/contact" className="gs-cta-btn">
             Get in touch with us!
           </Link>
