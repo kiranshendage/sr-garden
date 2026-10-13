@@ -37,25 +37,34 @@ export default function ScopeOfWork() {
             <h3>What&apos;s Included</h3>
             <ul className="check-list">
               <li>
-                <svg><use href="#i-check" /></svg>Site assessment &amp; soil check
+                <svg><use href="#i-check" /></svg>Site assessment &amp; Garden Development
               </li>
               <li>
-                <svg><use href="#i-check" /></svg>Design &amp; material planning
+                <svg><use href="#i-check" /></svg>Design &amp; Garden material supply
               </li>
               <li>
-                <svg><use href="#i-check" /></svg>Plant, pot &amp; hardscape sourcing
+                <svg><use href="#i-check" /></svg>Plant, pot &amp; Vartical Garden/green wall
               </li>
               <li>
-                <svg><use href="#i-check" /></svg>Planting &amp; installation
+                <svg><use href="#i-check" /></svg>Planting &amp; Irrigation
               </li>
               <li>
-                <svg><use href="#i-check" /></svg>Drip / sprinkler irrigation setup
+                <svg><use href="#i-check" /></svg>Garden maintenance
               </li>
               <li>
-                <svg><use href="#i-check" /></svg>Handover walkthrough
+                <svg><use href="#i-check" /></svg>Ready to use green wall pots mixing media
               </li>
               <li>
-                <svg><use href="#i-check" /></svg>Ongoing maintenance scheduling
+                <svg><use href="#i-check" /></svg>All types of plants pot's supply
+              </li>
+              <li>
+                <svg><use href="#i-check" /></svg>Terrace garden maintenance
+              </li>
+              <li>
+                <svg><use href="#i-check" /></svg>Banglow garden maintenance
+              </li>
+              <li>
+                <svg><use href="#i-check" /></svg>Tree cutting and transplantation
               </li>
             </ul>
           </div>

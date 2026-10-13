@@ -42,7 +42,7 @@ const EXPLORE = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Garden Setup" },
-  { href: "/gardening-service", label: "Gardening Service" },
+  // { href: "/gardening-service", label: "Gardening Service" },
   { href: "/rent-a-garden", label: "Rent a Garden" },
   { href: "/scope", label: "Scope of Work" },
 ];
@@ -57,6 +57,7 @@ const COMPANY = [
 
 const WA = "https://wa.me/919422080519";
 const PHONE_DISPLAY = "+91 94220 80519";
+const PHONE_ALTERNATIVE = "+91 84599 26927";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -129,6 +130,12 @@ export default function Footer() {
                 <span className="ft-label">WhatsApp / Call</span>
                 <a href={WA} target="_blank" rel="noopener noreferrer">
                   {PHONE_DISPLAY}
+                </a>
+              </li>
+              <li>
+                <span className="ft-label">WhatsApp / Call</span>
+                <a target="_blank" rel="noopener noreferrer">
+                  {PHONE_ALTERNATIVE}
                 </a>
               </li>
               <li>

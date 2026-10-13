@@ -298,20 +298,20 @@ type NavItem = {
 const NAV_LINKS: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  {
-    href: "/gardening-service",
-    label: "Gardening Service",
-    children: [
-      {
-        href: "/gardening-service?tab=monthly",
-        label: "Monthly Care",
-      },
-      {
-        href: "/gardening-service?tab=annual",
-        label: "Annual Care",
-      },
-    ],
-  },
+  // {
+  //   href: "/gardening-service",
+  //   label: "Gardening Service",
+  //   children: [
+  //     {
+  //       href: "/gardening-service?tab=monthly",
+  //       label: "Monthly Care",
+  //     },
+  //     {
+  //       href: "/gardening-service?tab=annual",
+  //       label: "Annual Care",
+  //     },
+  //   ],
+  // },
   { href: "/services", label: "Garden Setup" },
   { href: "/rent-a-garden", label: "Rent a Garden" },
   { href: "/scope", label: "Scope of Work" },

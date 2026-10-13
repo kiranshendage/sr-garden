@@ -130,7 +130,7 @@ export default function RentAGarden() {
         </div>
       </section>
 
-      <section className="rg-plans">
+      {/* <section className="rg-plans">
         <div className="wrap">
           <h2 className="rg-section-title">Sapplo Plans</h2>
           <div className="rg-plans-grid">
@@ -168,7 +168,7 @@ export default function RentAGarden() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="rg-why">
         <div className="wrap">
