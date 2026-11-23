@@ -29,7 +29,7 @@ const IMAGES = {
 
 const PLANS = [
   {
-    name: "Sapplo Mini (10 Plants)",
+    name: " Mini (10 Plants)",
     tag: "Petite, compact & perfect for small spaces.",
     features: [
       "10 mixed plants",
@@ -43,7 +43,7 @@ const PLANS = [
     note: "Deposit: ₹3,500 (refundable)",
   },
   {
-    name: "Sapplo Bloom (15 Plants)",
+    name: " Bloom (15 Plants)",
     tag: "Lush, colourful & vibrant statement.",
     features: [
       "15 plants (Flowering + Foliage + Herbs mix)",
@@ -92,7 +92,7 @@ const LIGHT = [
 const REPLACEMENT = [
   "Free replacement for natural decline, disease or injury",
   "Chargeable if damaged due to pets, no sunlight, breakage or self-moving",
-  "Moving feature: Sapplo shifts your garden safely",
+  "Moving feature: shifts your garden safely",
   "Deposit: fully refundable after adjustments (if any)",
 ];
 
@@ -105,14 +105,14 @@ export default function RentAGarden() {
           <p className="eyebrow rg-hero-eyebrow">Rent a Garden</p>
           <h1>Rent a Balcony Garden</h1>
           <p className="rg-hero-sub">
-            With Sapplo, your balcony becomes more than a corner — it becomes
+            With , your balcony becomes more than a corner — it becomes
             your own low-lift sanctuary. Where nature grows closer, less
             watering and more time.
           </p>
           <div className="rg-hero-actions">
             <a
               className="rg-btn rg-btn-primary"
-              href={waLink("Hi! I'd like to start with 10 Plants (Sapplo Mini).")}
+              href={waLink("Hi! I'd like to start with 10 Plants (Mini).")}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -120,7 +120,7 @@ export default function RentAGarden() {
             </a>
             <a
               className="rg-btn rg-btn-ghost"
-              href={waLink("Hi! I'd like to start with 15 Plants (Sapplo Bloom).")}
+              href={waLink("Hi! I'd like to start with 15 Plants (Bloom).")}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -249,13 +249,13 @@ export default function RentAGarden() {
 
       <section className="rg-cta">
         <div className="wrap">
-          <p className="rg-cta-eyebrow">Sapplo Rent a Garden</p>
+          <p className="rg-cta-eyebrow">Rent a Garden</p>
           <h2>
             Bring home a beautiful balcony garden — without buying anything
           </h2>
           <a
             className="rg-cta-btn"
-            href={waLink("Hi! I'd like to book a Sapplo Rent a Garden setup.")}
+            href={waLink("Hi! I'd like to book a Rent a Garden setup.")}
             target="_blank"
             rel="noopener noreferrer"
           >
