@@ -190,12 +190,12 @@ export default function Nav() {
 
             <button
               className="burger"
-              aria-label="Open menu"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
-              onClick={() => setMenuOpen(true)}
+              onClick={() => setMenuOpen((prev) => !prev)}
             >
               <svg>
-                <use href="#i-menu" />
+                <use href={menuOpen ? "#i-close" : "#i-menu"} />
               </svg>
             </button>
 
