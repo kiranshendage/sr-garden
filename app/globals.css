@@ -7249,3 +7249,47 @@ nav.links>a::after {
     width: 100%;
   }
 }
+
+
+.hero-logo-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 1rem;
+  background: transparent;
+}
+
+.hero-logo {
+  display: block;
+  width: min(100%, 560px);
+  height: auto;
+  background: transparent;
+
+  /* Light outline helps the green logo stand out */
+  filter:
+    drop-shadow(0 0 3px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+
+  transition: transform 0.25s ease-out;
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-logo-area {
+    padding: 1rem 0;
+  }
+
+  .hero-logo {
+    width: min(100%, 400px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo {
+    transition: none;
+  }
+}
